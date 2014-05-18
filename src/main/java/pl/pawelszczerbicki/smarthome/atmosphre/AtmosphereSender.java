@@ -1,6 +1,7 @@
 package pl.pawelszczerbicki.smarthome.atmosphre;
 
 import org.atmosphere.wasync.Socket;
+import pl.pawelszczerbicki.smarthome.message.Message;
 
 import java.io.IOException;
 
@@ -15,9 +16,13 @@ public class AtmosphereSender {
         this.socket = socket;
     }
 
-    public void send(Message m) throws IOException {
+    public void send(Message m) {
         if(socket == null)
             throw new IllegalStateException("Socket is not initialized!");
-        socket.fire(m);
+        try {
+            socket.fire(m);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

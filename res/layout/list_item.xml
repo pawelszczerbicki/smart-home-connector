@@ -3,19 +3,19 @@
 <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+    <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New ToggleButton"
+            android:id="@+id/switchDevice"
+            android:layout_below="@+id/valueSeek" android:layout_centerHorizontal="true"/>
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Flicker"
             android:id="@+id/flicker"
-            android:layout_alignTop="@+id/switch"
-            android:layout_alignParentEnd="true" android:layout_toRightOf="@+id/switch"/>
-    <ToggleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New ToggleButton"
-            android:id="@+id/switch"
-            android:layout_below="@+id/seekBar" android:layout_centerHorizontal="true"/>
+            android:layout_alignTop="@+id/switchDevice"
+            android:layout_alignParentEnd="true" android:layout_toRightOf="@+id/switchDevice"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,13 +24,13 @@
             android:gravity="center"
             android:id="@+id/name"
             android:layout_alignParentTop="true" android:layout_alignParentStart="true"
-            android:layout_toLeftOf="@+id/switch"/>
+            android:layout_toLeftOf="@+id/switchDevice"/>
     <SeekBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/seekBar"
+            android:id="@+id/valueSeek"
             android:layout_alignParentTop="true" android:layout_alignParentEnd="true"
-            android:layout_toRightOf="@+id/name"/>
+            android:layout_toRightOf="@+id/name" android:indeterminate="false"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,6 +39,6 @@
             android:id="@+id/value"
             android:gravity="center"
             android:textColor="#cf6d6d" android:textStyle="bold|italic"
-            android:layout_alignTop="@+id/switch" android:layout_alignEnd="@+id/name"
-            android:layout_alignParentStart="true" android:layout_alignBottom="@+id/switch"/>
+            android:layout_alignTop="@+id/switchDevice" android:layout_alignEnd="@+id/name"
+            android:layout_alignParentStart="true" android:layout_alignBottom="@+id/switchDevice"/>
 </RelativeLayout>
