@@ -31,14 +31,24 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
 
     private DeviceHolder holder(int position, View convertView) {
         DeviceHolder holder = new DeviceHolder();
+        Device d = getItem(position);
         holder.name = (TextView) convertView.findViewById(R.id.name);
         holder.value = (TextView) convertView.findViewById(R.id.value);
         holder.switchDevice = (ToggleButton) convertView.findViewById(R.id.switchDevice);
         holder.flicker = (Button) convertView.findViewById(R.id.flicker);
         holder.valueSeek = (SeekBar) convertView.findViewById(R.id.valueSeek);
-        holder.name.setText(getItem(position).getName());
-        holder.value.setText(getItem(position).getValue().toString());
+        holder.name.setText(d.getName());
+        holder.value.setText(d.getValue().toString());
+        holder.switchDevice.setChecked(d.isOn());
+        holder.valueSeek.setProgress(d.getValue());
         return holder;
+    }
+
+    public Device getById(String deviceId) {
+        for (int i = 0; i < getCount(); i++)
+            if (getItem(i).getId().equals(deviceId))
+                return getItem(i);
+        return null;
     }
 
     private class DeviceHolder {
@@ -46,6 +56,6 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
         private TextView value;
         private ToggleButton switchDevice;
         private Button flicker;
-       private  SeekBar valueSeek;
+        private SeekBar valueSeek;
     }
 }

@@ -10,10 +10,18 @@ import java.io.IOException;
  */
 public class AtmosphereSender {
 
+    private static AtmosphereSender instance = new AtmosphereSender();
     private Socket socket;
 
-    public AtmosphereSender(Socket socket) {
-        this.socket = socket;
+    public static AtmosphereSender getInstance() {
+        return instance;
+    }
+
+    private AtmosphereSender() {
+    }
+
+    public void setSocket(Socket s) {
+        this.socket = s;
     }
 
     public void send(Message m) {

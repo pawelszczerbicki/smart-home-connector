@@ -56,4 +56,15 @@ public class Message {
     public enum MessageType {
         WELCOME, CONFIG, ACTION, CHECK_DEVICE, INFO, HEARTBEAT, NOTIFICATION
     }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "type=" + type +
+                ", deviceId='" + deviceId + '\'' +
+                ", raspiPin=" + raspiPin +
+                ", action=" + action +
+                ", message='" + message + '\'' +
+                '}';
+    }
 }

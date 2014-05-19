@@ -84,7 +84,11 @@ public class Device implements Serializable {
         this.active = active;
     }
 
-    private enum State {
+    public boolean isOn() {
+        return state == State.ON;
+    }
+
+    public enum State {
         ON, OFF
     }
 }
