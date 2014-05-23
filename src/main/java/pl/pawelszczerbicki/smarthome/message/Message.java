@@ -2,16 +2,26 @@ package pl.pawelszczerbicki.smarthome.message;
 
 import pl.pawelszczerbicki.smarthome.device.Action;
 
+import java.io.Serializable;
+
 /**
  * Created by Pawel on 2014-05-16.
  */
-public class Message {
+public class Message implements Serializable{
 
     private MessageType type;
     private String deviceId;
     private Integer raspiPin;
     private Action action;
     private String message;
+
+    public Message(MessageType type, String deviceId, Integer raspiPin, Action action, String message) {
+        this.type = type;
+        this.deviceId = deviceId;
+        this.raspiPin = raspiPin;
+        this.action = action;
+        this.message = message;
+    }
 
     public MessageType getType() {
         return type;

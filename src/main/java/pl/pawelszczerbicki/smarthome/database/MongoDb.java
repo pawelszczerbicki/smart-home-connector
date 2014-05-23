@@ -1,6 +1,7 @@
 package pl.pawelszczerbicki.smarthome.database;
 
 import android.util.Log;
+import com.mongodb.DB;
 import com.mongodb.MongoClient;
 
 import java.net.UnknownHostException;
@@ -15,18 +16,16 @@ public abstract class MongoDb<T> {
 
     private MongoClient client;
 
-    protected MongoClient getClient() {
+    protected DB getSession() {
         if (client == null)
             try {
-                return new MongoClient(DATABASE_URL, DATABASE_PORT);
+                client =  new MongoClient(DATABASE_URL, DATABASE_PORT);
             } catch (UnknownHostException e) {
                 Log.e("Mongo", "Can not connect with mongo");
                 throw new IllegalStateException();
             }
-        return client;
+        return client.getDB(databaseName());
     }
 
-    protected void save(T entity){
-
-    }
+    protected abstract String databaseName();
 }

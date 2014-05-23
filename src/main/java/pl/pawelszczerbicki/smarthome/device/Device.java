@@ -1,7 +1,5 @@
 package pl.pawelszczerbicki.smarthome.device;
 
-import com.pi4j.io.gpio.RaspiPin;
-
 import java.io.Serializable;
 import java.util.Set;
 
@@ -17,9 +15,9 @@ public class Device implements Serializable {
 
     private State state;
 
-    private Integer value;
+    private Integer value=0;
 
-    private RaspiPin raspiPin;
+    private Integer raspiPin;
 
     private Boolean active;
 
@@ -61,18 +59,18 @@ public class Device implements Serializable {
     }
 
     public Integer getValue() {
-        return value;
+        return value == null ? 0: value;
     }
 
     public void setValue(Integer value) {
-        this.value = value;
+        this.value = value == null ? 0 : value;
     }
 
-    public RaspiPin getRaspiPin() {
+    public Integer getRaspiPin() {
         return raspiPin;
     }
 
-    public void setRaspiPin(RaspiPin raspiPin) {
+    public void setRaspiPin(Integer raspiPin) {
         this.raspiPin = raspiPin;
     }
 

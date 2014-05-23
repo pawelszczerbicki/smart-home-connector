@@ -55,6 +55,7 @@ public class AtmosphereService extends AsyncTask{
             socket.on(new Function<Message>() {
                 @Override
                 public void on(Message m) {
+
                     activity.service(m);
                 }
             }).on(new Function<IOException>() {
